@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Test 1</title>
+
+<!--Page setup-->
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #16191d;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* NAVBAR */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    z-index: 1000;
+    background: rgba(0,0,0,.3);
+    backdrop-filter: blur(10px);
+}
+
+nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+} 
+
+#hover-wrap {
+  position: relative;
+  width: 95vw;
+  height: 85vh;
+  overflow: hidden;
+}
+
+#hover-wrap img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#img2 {
+  clip-path: circle(0px at center);
+  will-change: clip-path;
+}
+</style>
+</head>
+
+<body>
+
+  <nav>
+    <h2>Framework</h2>
+
+    <ul>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Support</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="/Test 2.html">Test 2</a></li>
+    </ul>
+</nav>
+
+<!--image setup-->
+
+<div id="hover-wrap">
+  <img
+    id="img1"
+    src="FW 13 Wallpaper 4 (4K).jpg"
+    alt="First image"
+  >
+
+  <img
+    id="img2"
+    src="FW 13 Wallpaper 5 (4K).jpg"
+    alt="image trasnform"
+  >
+</div>
+
+<script>
+
+/*mouse track*/
+
+const wrap = document.getElementById("hover-wrap");
+const img2 = document.getElementById("img2");
+
+let mouseX = 0;
+let mouseY = 0;
+let currentX = 0;
+let currentY = 0;
+let currentRadius = 0;
+let targetRadius = 0;
+
+wrap.addEventListener("mousemove", (e) => {
+  const rect = wrap.getBoundingClientRect();
+  mouseX = e.clientX - rect.left;
+  mouseY = e.clientY - rect.top;
+  targetRadius = 140;
+});
+
+wrap.addEventListener("mouseleave", () => {
+  targetRadius = 0;
+});
+
+function animate() {
+  currentX += (mouseX - currentX) * 0.12;
+  currentY += (mouseY - currentY) * 0.12;
+  currentRadius +=
+    (targetRadius - currentRadius) * 0.12;
+
+  img2.style.clipPath =
+    `circle(${currentRadius}px at ${currentX}px ${currentY}px)`;
+
+  requestAnimationFrame(animate);
+}
+
+animate();
+
+</script>
+
+</body>
+</html>
