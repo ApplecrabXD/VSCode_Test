@@ -6,6 +6,9 @@
 
 <title>Test 2</title>
 
+<!--Page Setup-->
+
+
 <style>
 
 * {
@@ -20,7 +23,7 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* NAVBAR */
+/*Navbar*/
 
 nav {
     position: fixed;
@@ -47,7 +50,7 @@ nav a {
     text-decoration: none;
 } 
 
-/* SCROLL AREA */
+/*Scroll Creation*/
 
 #scroll-section {
     height: 300vh;
@@ -62,7 +65,7 @@ nav a {
     align-items: center;
 }
 
-/* IMAGE CONTAINER */
+/*Image Container*/
 
 #image-container {
     position: relative;
@@ -89,6 +92,8 @@ nav a {
 </head>
 <body>
 
+<!--Navbar-->
+
 <nav>
     <h2>Framework</h2>
 
@@ -100,7 +105,7 @@ nav a {
     </ul>
 </nav>
 
-<!--image def-->
+<!--Image Setup-->
 
 <section id="scroll-section">
 
@@ -128,7 +133,7 @@ nav a {
 
 <script>
 
-/*scroll track*/
+/*scroll*/
 
 const section =
     document.getElementById("scroll-section");
@@ -153,6 +158,8 @@ window.addEventListener("scroll", () => {
             1
         );
 
+    /*Size*/
+
     const width =
         100 - (70 * progress);
 
@@ -167,6 +174,8 @@ window.addEventListener("scroll", () => {
 
     container.style.borderRadius =
         `${progress * 30}px`;
+
+    /*Modify*/
 
     img2.style.opacity =
         progress;
