@@ -107,7 +107,7 @@ nav a {
 
 <script>
 
-/*mouse track*/
+/*Shape Animation*/
 
 const wrap = document.getElementById("hover-wrap");
 const img2 = document.getElementById("img2");
@@ -119,6 +119,8 @@ let currentY = 0;
 let currentRadius = 0;
 let targetRadius = 0;
 
+/*Shape Shown & Hiden*/
+
 wrap.addEventListener("mousemove", (e) => {
   const rect = wrap.getBoundingClientRect();
   mouseX = e.clientX - rect.left;
@@ -129,6 +131,8 @@ wrap.addEventListener("mousemove", (e) => {
 wrap.addEventListener("mouseleave", () => {
   targetRadius = 0;
 });
+
+/*mouse track*/
 
 function animate() {
   currentX += (mouseX - currentX) * 0.12;
